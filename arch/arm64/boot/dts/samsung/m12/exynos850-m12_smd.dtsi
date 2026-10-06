@@ -1,0 +1,683 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Galaxy M12 mobile device data common to all models, from the stock DTBO
+ *
+ * Copyright (c) 2021 Samsung Electronics Co., Ltd.
+ */
+
+/ {
+	fragment@smd {
+		target-path = "/";
+		__overlay__ {
+			smd: samsung_mobile_device {
+				compatible = "simple-bus";
+				sec_abc {
+					compatible = "samsung,sec_abc";
+					status = "okay";
+					gpu {
+						gpu,label = "GPU fault";
+						gpu,threshold_count = <0x14>;
+						gpu,threshold_time = <0x4b0>;
+					};
+					aicl {
+						aicl,label = "battery aicl";
+						aicl,threshold_count = <0x05>;
+						aicl,threshold_time = <0x12c>;
+					};
+				};
+				abc_hub {
+					compatible = "samsung,abc_hub";
+					status = "okay";
+					bootc {
+						bootc,time_spec_eng = <0x186a0>;
+						bootc,time_spec_fac = <0x186a0>;
+						bootc,time_spec_user = <0x186a0>;
+					};
+				};
+				input_booster {
+					#address-cells = <0x01>;
+					#size-cells = <0x00>;
+					allowed_resources = "1,2,3,4,5,6";
+					compatible = "input_booster";
+					cpu_cluster_policy = "4,0";
+					ib_release_values = "0,0,0,0,0,0,0";
+					max_cluster_count = "3";
+					max_resource_count = "7";
+					status = "okay";
+					booster_key@1 {
+						input_booster,head_time = <0x1f4>;
+						input_booster,label = "key";
+						input_booster,tail_time = <0x00>;
+						input_booster,type = <0x00>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x163780 0x00>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x163780 0x00>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x00>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x00>;
+							};
+						};
+					};
+					booster_key@2 {
+						input_booster,head_time = <0x00>;
+						input_booster,label = "touchkey";
+						input_booster,tail_time = <0xc8>;
+						input_booster,type = <0x01>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x163780 0x00>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x163780 0x00>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x00>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x00>;
+							};
+						};
+					};
+					booster_key@3 {
+						input_booster,head_time = <0x82>;
+						input_booster,label = "touch";
+						input_booster,tail_time = <0x1f4>;
+						input_booster,type = <0x02>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x11a788 0x101148>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x11a788 0x101148>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0xf78f0 0xf78f0>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+					booster_key@4 {
+						input_booster,head_time = <0x3e8>;
+						input_booster,label = "multitouch";
+						input_booster,tail_time = <0x1f4>;
+						input_booster,type = <0x03>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x11a788 0x101148>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x11a788 0x101148>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0xf78f0 0xf78f0>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+					booster_key@5 {
+						input_booster,head_time = <0x82>;
+						input_booster,label = "keyboard";
+						input_booster,tail_time = <0x00>;
+						input_booster,type = <0x04>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+					booster_key@6 {
+						input_booster,head_time = <0x82>;
+						input_booster,label = "mouse";
+						input_booster,tail_time = <0x1f4>;
+						input_booster,type = <0x05>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+					booster_key@7 {
+						input_booster,head_time = <0x82>;
+						input_booster,label = "mouse_wheel";
+						input_booster,tail_time = <0x00>;
+						input_booster,type = <0x06>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x13d620 0x00>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x13d620 0x00>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x00>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x00>;
+							};
+						};
+					};
+					booster_key@8 {
+						input_booster,head_time = <0x82>;
+						input_booster,label = "pen_hover";
+						input_booster,tail_time = <0x1f4>;
+						input_booster,type = <0x07>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x13d620 0xe7b08>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0x00 0x00>;
+							};
+							resource@4 {
+								resource,label = "int";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+					booster_key@9 {
+						input_booster,head_time = <0xc8>;
+						input_booster,label = "pen";
+						input_booster,tail_time = <0x258>;
+						input_booster,type = <0x08>;
+						inputbooster,resource {
+							compatible = "resource";
+							resource@1 {
+								resource,label = "cluster1";
+								resource,value = <0x183350 0x11a788>;
+							};
+							resource@2 {
+								resource,label = "cluster0";
+								resource,value = <0x183350 0x11a788>;
+							};
+							resource@3 {
+								resource,label = "mif";
+								resource,value = <0xf78f0 0xf78f0>;
+							};
+							resource@4 {
+								resource,label = "bimc";
+								resource,value = <0x00 0x00>;
+							};
+							resource@5 {
+								resource,label = "hmp";
+								resource,value = <0x01 0x01>;
+							};
+							resource@6 {
+								resource,label = "ucc";
+								resource,value = <0x01 0x01>;
+							};
+						};
+					};
+				};
+				sec_pa_thermistor: sec_thermistor@1 {
+					adc_array = <0x1ba 0x213 0x293 0x325 0x3ce 0x4a7 0x5ba 0x67a 0x758 0x80f 0x8fc 0x97e 0x9b9 0xa95 0xb47 0xc08 0xc70 0xcf3 0xdc9 0xe09 0xe43 0xe9f 0xef9>;
+					compatible = "samsung,sec-thermistor";
+					id = <0x01>;
+					io-channel-names = "pa_therm";
+					io-channel-ranges;
+					io-channels = <&exynos_adc 0x02>;
+					status = "okay";
+					temp_array = <0xffffff38 0xffffff6a 0xffffff9c 0xffffffce 0x00 0x32 0x64 0x96 0xc8 0xfa 0x12c 0x15e 0x190 0x1c2 0x1f4 0x226 0x258 0x28a 0x2bc 0x2ee 0x320 0x352 0x384>;
+					thermistor_name = "sec-pa-thermistor";
+				};
+				sec_ap_thermistor: sec_thermistor@0 {
+					adc_array = <0xe6 0x14e 0x1ae 0x1dc 0x226 0x28e 0x2e4 0x375 0x3ca 0x493 0x53c 0x627 0x6e8 0x7d1 0x866 0x966 0x9f5 0xb39 0xc12 0xcc3 0xd6a 0xdcd 0xe2c>;
+					compatible = "samsung,sec-thermistor";
+					id = <0x00>;
+					io-channel-names = "ap_therm";
+					io-channel-ranges;
+					io-channels = <&exynos_adc 0x00>;
+					status = "okay";
+					temp_array = <0x384 0x352 0x320 0x2ee 0x2bc 0x28a 0x258 0x226 0x1f4 0x1c2 0x190 0x15e 0x12c 0xfa 0xc8 0x96 0x64 0x32 0x00 0xffffffce 0xffffff9c 0xffffff6a 0xffffff38>;
+					thermistor_name = "sec-ap-thermistor";
+				};
+				fixed_regulator0: fixed_regulator@0 {
+					compatible = "regulator-fixed";
+					enable-active-high;
+					gpio = <&gpg1 0x03 0x00>;
+					pinctrl-0 = <&ldo_gpio0>;
+					pinctrl-names = "default";
+					regulator-name = "nfc_pvdd";
+				};
+				dc_vibrator {
+					compatible = "samsung,dc_vibrator";
+					dc_vib,motor_type = "COINDC";
+					dc_vib,regulator_name = "dc_vib";
+					dc_vib-supply = <&l31_reg>;
+					status = "okay";
+				};
+				gw3x {
+					#gpio-cells = <0x02>;
+					VDD_BTP_3P3-supply = <&l26_reg>;
+					clock-names = "gate_spi_clk\0ipclk_spi";
+					clocks = <&clock 0x239 &clock 0x23d>;
+					compatible = "goodix,fingerprint";
+					goodix,btp-regulator = "VDD_BTP_3P3";
+					goodix,chip_id = "GW36T1";
+					goodix,gpio_irq = <&gpa0 0x05 0x00>;
+					goodix,gpio_reset = <&gpg1 0x01 0x00>;
+					goodix,orient = <0x01>;
+					goodix,position = "${fps_position}";
+					gpio-controller;
+					pinctrl-0 = <&gfspi_rstpin &gfspi_drdypin_suspend>;
+					pinctrl-1 = <&gfspi_drdypin_active &spi_fp_clk &spi_fp_cs &spi_fp_miso &spi_fp_mosi>;
+					pinctrl-2 = <&gfspi_drdypin_suspend &spi_fp_bus_inactive &spi_fp_miso_inactive>;
+					pinctrl-3 = <&gfspi_drdypin_active>;
+					pinctrl-4 = <&gfspi_drdypin_suspend>;
+					pinctrl-names = "default\0pins_poweron\0pins_poweroff\0pins_poweron_tz\0pins_poweroff_tz";
+					reg = <0x00>;
+					spi-max-frequency = <0x927c00>;
+					controller-data {
+						cs-gpio = <&gpp2 0x01 0x00>;
+						samsung,spi-chip-select-mode = <0x00>;
+						samsung,spi-feedback-delay = <0x00>;
+					};
+				};
+				sm5714-fuelgauge {
+					fuelgauge,capacity = <0x1388>;
+					fuelgauge,capacity_calculation_type = <0x1f>;
+					fuelgauge,capacity_max = <0x3e8>;
+					fuelgauge,capacity_max_margin = <0x12c>;
+					fuelgauge,capacity_min = <0x00>;
+					fuelgauge,fuel_alert_soc = <0x01>;
+					fuelgauge,low_temp_limit = <0x64>;
+					fuelgauge,sw_v_empty_recover_voltage = <0xd98>;
+					fuelgauge,sw_v_empty_voltage = <0xc80>;
+					fuelgauge,sw_v_empty_voltage_cisd = <0xc1c>;
+					fuelgauge,using_hw_vempty;
+					fuelgauge,using_temp_compensation;
+					status = "okay";
+					battery_params {
+						battery,id = <0x00>;
+						battery0,aux_ctrl = <0x322 0x5800>;
+						battery0,battery_table2 = <0x4b4b 0x4444 0x4040 0x3e3e 0x3c3c 0x3b3b 0x3838 0x3737 0x3535 0x3434 0x3434 0x3333 0x3333 0x3333 0x3333 0x3232>;
+						battery0,tem_poff = <0xd48 0x32 0xcb2 0x32>;
+						battery0,temp_std = <0x19>;
+						battery0,v_alarm = <0xc1c 0xc8>;
+						battery0,v_cal = <0x01 0x00 0x00 0x01 0x00 0x00 0x00>;
+					};
+				};
+				sec_battery: battery {
+					battery,adc_check_count = <0x05>;
+					battery,age_data = <0x00 0x10fe 0x10b8 0x109a 0x5d 0x12c 0x10ea 0x10a4 0x1086 0x5c 0x190 0x10d6 0x1090 0x1072 0x5b 0x2bc 0x10c2 0x107c 0x105e 0x5a 0x3e8 0x1090 0x104a 0x102c 0x59>;
+					battery,batt_data_version = <0x01>;
+					battery,batt_temp_adj_gap_inc = <0x14>;
+					battery,battery_check_type = <0x00>;
+					battery,battery_full_capacity = <0x1388>;
+					battery,cable_check_type = <0x04>;
+					battery,cable_source_type = <0x01>;
+					battery,charger_name = "sm5714-charger";
+					battery,charging_reset_time = <0x00>;
+					battery,charging_total_time = <0x3840>;
+					battery,chg_charging_limit_current = <0x578>;
+					battery,chg_float_voltage = <0x10fe>;
+					battery,chg_gpio_full_check = <0x00>;
+					battery,chg_high_temp = <0x276>;
+					battery,chg_high_temp_recovery = <0x23a>;
+					battery,chg_input_limit_current = <0x3e8>;
+					battery,chg_polarity_full_check = <0x01>;
+					battery,chg_temp_check_type = <0x02>;
+					battery,chg_temp_table_adc = <0x10b 0x15b 0x1b3 0x1ef 0x23f 0x2a9 0x318 0x39a 0x416 0x4c6 0x578 0x654 0x715 0x7f4 0x8c6 0x988 0xa57 0xb51 0xc17 0xcda 0xd6f 0xde4 0xe44>;
+					battery,chg_temp_table_data = <0x384 0x352 0x320 0x2ee 0x2bc 0x28a 0x258 0x226 0x1f4 0x1c2 0x190 0x15e 0x12c 0xfa 0xc8 0x96 0x64 0x32 0x00 0xffffffce 0xffffff9c 0xffffff6a 0xffffff38>;
+					battery,chg_thermal_source = <0x02>;
+					battery,chip_vendor = "LSI";
+					battery,cisd_alg_index = <0x08>;
+					battery,cisd_max_voltage_thr = <0x1388>;
+					battery,enable_noise_wa;
+					battery,enable_sysovlo_irq;
+					battery,fgsrc_switch_name = "sm5714-fuelgauge";
+					battery,fuelgauge_name = "sm5714-fuelgauge";
+					battery,full_check_count = <0x01>;
+					battery,full_check_type = <0x02>;
+					battery,full_check_type_2nd = <0x02>;
+					battery,full_condition_soc = <0x5d>;
+					battery,full_condition_type = <0x09>;
+					battery,full_condition_vcell = <0x109a>;
+					battery,health_condition = <0x384 0x00 0x4b0 0x00 0x5dc 0x00>;
+					battery,high_temp_float = <0x1036>;
+					battery,hv_charging_total_time = <0x2a30>;
+					battery,ignore_cisd_index = <0x00 0x00>;
+					battery,ignore_cisd_index_d = <0x00 0x50>;
+					battery,low_temp_float = <0x10fe>;
+					battery,max_charging_charge_power = <0x3a98>;
+					battery,max_charging_current = <0x8fc>;
+					battery,max_input_current = <0xbb8>;
+					battery,max_input_voltage = <0x2328>;
+					battery,mix_high_chg_temp = <0x1f4>;
+					battery,mix_high_temp = <0x1a4>;
+					battery,mix_high_temp_recovery = <0x186>;
+					battery,monitor_initial_count = <0x00>;
+					battery,normal_charging_total_time = <0x4650>;
+					battery,overheatlimit_recovery = <0x2a8>;
+					battery,overheatlimit_threshold = <0x2bc>;
+					battery,ovp_uvlo_check_type = <0x03>;
+					battery,pd_charging_charge_power = <0x3a98>;
+					battery,polling_time = <0x0a 0x1e 0x1e 0x1e 0xe10>;
+					battery,polling_type = <0x01>;
+					battery,pre_afc_input_current = <0x1f4>;
+					battery,pre_afc_work_delay = <0x7d0>;
+					battery,pre_wc_afc_input_current = <0x1f4>;
+					battery,pre_wc_afc_work_delay = <0xfa0>;
+					battery,prepare_ta_delay = <0x00>;
+					battery,recharge_check_count = <0x01>;
+					battery,recharge_condition_soc = <0x62>;
+					battery,recharge_condition_type = <0x04>;
+					battery,recharge_condition_vcell = <0x10b8>;
+					battery,recharging_expired_time = <0x1518>;
+					battery,recharging_total_time = <0x1518>;
+					battery,rp_current_abnormal_rp3 = <0x708>;
+					battery,rp_current_rdu_rp3 = <0x834>;
+					battery,rp_current_rp1 = <0x1f4>;
+					battery,rp_current_rp2 = <0x5dc>;
+					battery,rp_current_rp3 = <0xbb8>;
+					battery,siop_apdo_charging_limit_current = <0x7d0>;
+					battery,siop_apdo_input_limit_current = <0x4b0>;
+					battery,siop_call_cc_current = <0x14a>;
+					battery,siop_call_cv_current = <0x14a>;
+					battery,siop_charging_limit_current = <0x3e8>;
+					battery,siop_event_check_type = <0x01>;
+					battery,siop_hv_charging_limit_current = <0x3e8>;
+					battery,siop_hv_input_limit_current = <0x2bc>;
+					battery,siop_hv_input_limit_current_2nd = <0x226>;
+					battery,siop_input_limit_current = <0x4b0>;
+					battery,sleep_mode_limit_current = <0x1f4>;
+					battery,standard_curr = <0x8fc>;
+					battery,store_mode_charging_max = <0x46>;
+					battery,store_mode_charging_min = <0x3c>;
+					battery,swelling_drop_float_voltage = <0x1036>;
+					battery,swelling_high_rechg_voltage = <0xfa0>;
+					battery,swelling_high_temp_block = <0x19a>;
+					battery,swelling_high_temp_recov = <0x186>;
+					battery,swelling_low_rechg_voltage = <0x1068>;
+					battery,swelling_low_temp_block_1st = <0x96>;
+					battery,swelling_low_temp_block_2nd = <0x32>;
+					battery,swelling_low_temp_recov_1st = <0xaa>;
+					battery,swelling_low_temp_recov_2nd = <0x46>;
+					battery,technology = <0x02>;
+					battery,temp_adc_type = <0x01>;
+					battery,temp_check_count = <0x01>;
+					battery,temp_check_type = <0x02>;
+					battery,temp_gap_bat_usb = <0xc8>;
+					battery,temp_high_recovery_event = <0x1e0>;
+					battery,temp_high_recovery_lpm = <0x1e0>;
+					battery,temp_high_recovery_normal = <0x1e0>;
+					battery,temp_high_threshold_event = <0x1f4>;
+					battery,temp_high_threshold_lpm = <0x1f4>;
+					battery,temp_high_threshold_normal = <0x1f4>;
+					battery,temp_highlimit_recovery_event = <0x30c>;
+					battery,temp_highlimit_recovery_lpm = <0x30c>;
+					battery,temp_highlimit_recovery_normal = <0x30c>;
+					battery,temp_highlimit_threshold_event = <0x320>;
+					battery,temp_highlimit_threshold_lpm = <0x320>;
+					battery,temp_highlimit_threshold_normal = <0x320>;
+					battery,temp_low_recovery_event = <0x14>;
+					battery,temp_low_recovery_lpm = <0x14>;
+					battery,temp_low_recovery_normal = <0x14>;
+					battery,temp_low_threshold_event = <0x00>;
+					battery,temp_low_threshold_lpm = <0x00>;
+					battery,temp_low_threshold_normal = <0x00>;
+					battery,temp_table_adc = <0x5a 0x6e 0x7c 0x91 0xa6 0xc9 0xed 0x114 0x152 0x1a5 0x1f5 0x262 0x2ca 0x357 0x3fb 0x4a2 0x573 0x667 0x775 0x885 0x992 0xa8d 0xb5a>;
+					battery,temp_table_data = <0x384 0x352 0x320 0x2ee 0x2bc 0x28a 0x258 0x226 0x1f4 0x1c2 0x190 0x15e 0x12c 0xfa 0xc8 0x96 0x64 0x32 0x00 0xffffffce 0xffffff9c 0xffffff6a 0xffffff38>;
+					battery,thermal_source = <0x02>;
+					battery,usb_charging_total_time = <0x8ca0>;
+					battery,usb_protection_temp = <0x262>;
+					battery,usb_temp_check_type = <0x00>;
+					battery,usb_thermal_source = <0x05>;
+					battery,vendor = "Battery";
+					battery,wc_full_input_limit_current = <0x64>;
+					battery,wire_cold_cool3_thresh = <0x00>;
+					battery,wire_cool1_current = <0x8fc>;
+					battery,wire_cool1_normal_thresh = <0x96>;
+					battery,wire_cool2_cool1_thresh = <0x96>;
+					battery,wire_cool3_cool2_thresh = <0x32>;
+					battery,wire_normal_warm_thresh = <0x1a4>;
+					battery,wire_warm_overheat_thresh = <0x1f4>;
+					battery,wireless_cc_cv = <0x55>;
+					battery,wireless_cold_cool3_thresh = <0x00>;
+					battery,wireless_cool1_current = <0x8fc>;
+					battery,wireless_cool1_normal_thresh = <0x96>;
+					battery,wireless_cool2_cool1_thresh = <0x96>;
+					battery,wireless_cool2_current = <0x352>;
+					battery,wireless_cool3_cool2_thresh = <0x32>;
+					battery,wireless_cool3_current = <0x1c2>;
+					battery,wireless_normal_warm_thresh = <0x19a>;
+					battery,wireless_otg_input_current = <0x384>;
+					battery,wireless_warm_current = <0x352>;
+					battery,wireless_warm_overheat_thresh = <0x1c2>;
+					battery,wpc_charging_limit_current = <0x3e8>;
+					battery,wpc_high_recovery_normal = <0x1ae>;
+					battery,wpc_high_temp = <0x17c>;
+					battery,wpc_high_temp_recovery = <0x168>;
+					battery,wpc_high_threshold_normal = <0x1c2>;
+					battery,wpc_input_limit_current = <0x258>;
+					battery,wpc_lcd_on_high_temp = <0x17c>;
+					battery,wpc_lcd_on_high_temp_rec = <0x168>;
+					battery,wpc_lcd_on_input_limit_current = <0x1c2>;
+					battery,wpc_low_recovery_normal = <0x14>;
+					battery,wpc_low_threshold_normal = <0x00>;
+					battery,wpc_store_charging_limit_current = <0x190>;
+					battery,wpc_store_high_temp = <0x168>;
+					battery,wpc_store_high_temp_recovery = <0x154>;
+					battery,wpc_store_lcd_on_charging_limit_current = <0x190>;
+					battery,wpc_store_lcd_on_high_temp = <0x168>;
+					battery,wpc_store_lcd_on_high_temp_rec = <0x12c>;
+					battery,wpc_temp_check_type = <0x00>;
+					battery,wpc_temp_control_source = <0x01>;
+					battery,wpc_temp_lcd_on_control_source = <0x01>;
+					battery,wpc_thermal_source = <0x05>;
+					compatible = "samsung,sec-battery";
+					io-channel-names = "adc-temp\0adc-chg-temp\0n/a\0n/a\0n/a";
+					io-channels = <&exynos_adc 0x01 &exynos_adc 0x03>;
+					pinctrl-names = "default";
+					status = "okay";
+				};
+				sm5714_charger: sm5714-charger {
+					compatible = "samsung,sm5714-charger";
+					status = "disable";
+				};
+				sec_battery_cable: cable-info {
+					default_charging_current = <0x834>;
+					default_input_current = <0x708>;
+					current_group_1 {
+						cable_number = <0x02 0x13 0x15 0x16 0x17>;
+						charging_current = <0x1f4>;
+						input_current = <0x1f4>;
+					};
+					current_group_2 {
+						cable_number = <0x19 0x1f>;
+						charging_current = <0x3e8>;
+						input_current = <0x3e8>;
+					};
+					current_group_3 {
+						cable_number = <0x05 0x20>;
+						charging_current = <0x5dc>;
+						input_current = <0x5dc>;
+					};
+					current_group_4 {
+						cable_number = <0x06 0x07 0x08 0x11 0x12 0x28>;
+						charging_current = <0x8fc>;
+						input_current = <0x672>;
+					};
+					current_group_5 {
+						cable_number = <0x09>;
+						charging_current = <0x8fc>;
+						input_current = <0x672>;
+					};
+					current_group_6 {
+						cable_number = <0x0a 0x0c 0x0f 0x1b 0x21 0x24>;
+						charging_current = <0x8fc>;
+						input_current = <0x320>;
+					};
+					current_group_7 {
+						cable_number = <0x0d>;
+						charging_current = <0x8fc>;
+						input_current = <0x2bc>;
+					};
+					current_group_8 {
+						cable_number = <0x18>;
+						charging_current = <0x1c2>;
+						input_current = <0x3e8>;
+					};
+					current_group_9 {
+						cable_number = <0x1a>;
+						charging_current = <0x708>;
+						input_current = <0x708>;
+					};
+					current_group_10 {
+						cable_number = <0x0b 0x0e 0x10 0x1c 0x23>;
+						charging_current = <0x8fc>;
+						input_current = <0x28a>;
+					};
+					current_group_11 {
+						cable_number = <0x1d 0x25>;
+						charging_current = <0x4b0>;
+						input_current = <0x1f4>;
+					};
+					current_group_12 {
+						cable_number = <0x01 0x04 0x1e>;
+						charging_current = <0x226>;
+						input_current = <0x1db>;
+					};
+					current_group_13 {
+						cable_number = <0x22>;
+						charging_current = <0x92e>;
+						input_current = <0x4b0>;
+					};
+				};
+			};
+		};
+	};
+};

@@ -80,3 +80,4 @@ obj-$(CONFIG_EXYNOS_GNSS_IF) += gnssif/
 # Exynos CPU Performance
 obj-$(CONFIG_EXYNOS_CPU_PERF)	+= exynos_cpu_perf/
 
+obj-$(CONFIG_M12_MODEL_OVERLAY)	+= m12-model/

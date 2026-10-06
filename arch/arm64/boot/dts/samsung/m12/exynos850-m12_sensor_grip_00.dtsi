@@ -9,12 +9,6 @@
  * published by the Free Software Foundation.
  */
 
-&l27_reg {
-	regulator-name = "VDD_GRIP_3P3";
-	regulator-min-microvolt = <3300000>;
-	regulator-max-microvolt = <3300000>;
-};
-
 / {
 	fragment@common {
 		target-path = "/";

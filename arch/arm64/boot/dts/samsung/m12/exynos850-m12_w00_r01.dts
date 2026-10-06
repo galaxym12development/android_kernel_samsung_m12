@@ -1,0 +1,36 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Galaxy M12 DTBO, board revision 01
+ *
+ * Copyright (C) 2026 The galaxym12development Project
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "SAMSUNG", " M12_SWA_OPEN", " EXYNOS850";
+	dtbo-hw_rev = <0x01>;
+	dtbo-hw_rev_end = <0x20>;
+};
+
+#include "exynos850-m12_smd.dtsi"
+#include "exynos850.m12_swa_open.01.dtsi"
+#include "exynos850-m12_board.dtsi"
+
+/ {
+	fragment@contexthub {
+		target-path = "/contexthub";
+		__overlay__ {
+			acc-lis2dlc12-position = <0x0c>;
+		};
+	};
+
+	fragment@model_overlay {
+		target-path = "/";
+		__overlay__ {
+			model_overlay {
+			};
+		};
+	};
+};

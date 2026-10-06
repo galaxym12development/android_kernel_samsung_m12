@@ -1,0 +1,88 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * SM-M127F board data, from the stock DTBO
+ *
+ * Copyright (c) 2021 Samsung Electronics Co., Ltd.
+ */
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	fragment@0 {
+		target-path = "/acpm_mfd_bus@11A50000/s2mpu12mfd@00/regulators/LDO30";
+		__overlay__ {
+			regulator-max-microvolt = <0x1b7740>;
+			regulator-min-microvolt = <0x1b7740>;
+			regulator-name = "VDD_SENSOR_1P8";
+		};
+	};
+
+	fragment@1 {
+		target-path = "/hs_tune/hs_tune6";
+		__overlay__ {
+			tune_value = <0x0c 0x0c>;
+		};
+	};
+
+	fragment@2 {
+		target-path = "/i2c@17/a96t3x6@20";
+		__overlay__ {
+			a96t3x6,fw_path = "abov/a96t356_m12s.bin";
+		};
+	};
+
+	fragment@3 {
+		target-path = "/i2c@17/a96t3x6_sub@21";
+		__overlay__ {
+			a96t3x6,fw_path = "abov/a96t356_m12s_sub.bin";
+		};
+	};
+
+	fragment@4 {
+		target-path = "/samsung_mobile_device/battery";
+		__overlay__ {
+			battery,cv_data = <0x8db 0x37a 0x618 0x846 0x384 0x5be 0x7d1 0x38e 0x5a0 0x703 0x398 0x53b 0x660 0x3a2 0x4d2 0x596 0x3ac 0x467 0x494 0x3b6 0x377 0x41a 0x3c0 0x31d 0x389 0x3ca 0x2a4 0x2a2 0x3d4 0x186 0x225 0x3de 0x78 0x1d7 0x3e8 0x00>;
+			battery,expired_time = <0x35e8>;
+			battery,high_temp_topoff = <0xfa>;
+			battery,low_temp_topoff = <0xfa>;
+			battery,ttf_capacity = <0x11d5>;
+			battery,ttf_hv_charge_current = <0x82f>;
+			battery,wire_cool2_current = <0x352>;
+			battery,wire_cool3_current = <0x1ea>;
+			battery,wire_warm_current = <0x514>;
+		};
+	};
+
+	fragment@5 {
+		target-path = "/samsung_mobile_device/cable-info";
+		__overlay__ {
+			full_check_current_1st = <0x1db>;
+			full_check_current_2nd = <0xfa>;
+		};
+	};
+
+	fragment@6 {
+		target-path = "/samsung_mobile_device/sm5714-fuelgauge/battery_params";
+		__overlay__ {
+			battery0,battery_table0 = <0x1400 0x1b49 0x1c6e 0x1d41 0x1d71 0x1d80 0x1d94 0x1dda 0x1e17 0x1e3b 0x1e53 0x1e71 0x1e97 0x1ee7 0x1f14 0x1f58 0x1fb5 0x1fec 0x2025 0x2095 0x20e3 0x2122 0x2226 0x2400>;
+			battery0,battery_table1 = <0x00 0x99 0x24c 0x480 0x599 0x74c 0xccc 0x1266 0x1ab3 0x204c 0x25cc 0x2b66 0x30e6 0x3933 0x3c00 0x3ecc 0x4466 0x49e6 0x4cb3 0x4f80 0x5500 0x57cc 0x6400 0x6419>;
+			battery0,battery_type = <0x1130 0x2406>;
+			battery0,data_ver = <0x06>;
+			battery0,i_cal = <0x01 0x00 0x800 0x800 0x00 0x00 0x7ec 0x820>;
+			battery0,q_max_table = <0x2406 0x235f 0x22b9 0x2212 0x2071>;
+			battery0,rs_value = <0x00 0x30 0x3800 0x266 0x599 0x599 0x30>;
+			battery0,topoff = <0x1f4>;
+			battery0,v_max_table = <0x2226 0x2203 0x21e0 0x21bc 0x2165>;
+		};
+	};
+
+	fragment@7 {
+		target-path = "/";
+		__overlay__ {
+			shub {
+				sensor-vdd-regulator = "VDD_SENSOR_1P8";
+			};
+		};
+	};
+};

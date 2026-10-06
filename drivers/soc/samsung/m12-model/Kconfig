@@ -1,0 +1,7 @@
+config M12_MODEL_OVERLAY
+	bool "Galaxy M12 per-model device tree overlay"
+	depends on SOC_EXYNOS3830
+	select OF_OVERLAY
+	help
+	  Apply the device tree overlay of the model named by
+	  androidboot.em.model on top of the common M12 DTBO.
