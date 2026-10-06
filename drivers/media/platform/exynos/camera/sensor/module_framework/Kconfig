@@ -1,0 +1,3 @@
+source "drivers/media/platform/exynos/camera/sensor/module_framework/cis/Kconfig"
+source "drivers/media/platform/exynos/camera/sensor/module_framework/actuator/Kconfig"
+source "drivers/media/platform/exynos/camera/sensor/module_framework/flash/Kconfig"
