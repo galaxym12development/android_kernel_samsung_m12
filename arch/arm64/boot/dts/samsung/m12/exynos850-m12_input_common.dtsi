@@ -135,7 +135,6 @@
 		iliteck,ubl-byte-delay-us = <20>;
 		iliteck,area-size = <48 81 30>;
 		iliteck,enable_settings_aot;
-		iliteck,enable_sysinput_enabled;
 		iliteck,support_ear_detect_mode;
 		iliteck,prox_lp_scan_enabled;
 		iliteck,fw_name = "tsp_ilitek/ili9881x_m12s.hex";
@@ -162,7 +161,6 @@
 		novatek,enable_settings_aot;
 		novatek,support_ear_detect_mode;
 		novatek,prox_lp_scan_enabled;
-		novatek,enable_sysinput_enabled;
 		novatek,lcdid1-gpio = <&gpg1 7 0x0>;
 		novatek,lcdid2-gpio = <&gpg2 0 0x0>;
 		novatek,lcdid = <1 2>;	// CSOT, DTC
