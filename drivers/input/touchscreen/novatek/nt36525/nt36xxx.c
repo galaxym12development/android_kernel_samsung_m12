@@ -36,6 +36,7 @@
 #endif
 
 #include "nt36xxx.h"
+#include <linux/sec_common.h>
 #if NVT_TOUCH_ESD_PROTECT
 #include <linux/jiffies.h>
 #endif /* #if NVT_TOUCH_ESD_PROTECT */
@@ -2362,8 +2363,10 @@ static int32_t nvt_ts_probe(struct spi_device *client)
 		goto err_create_nvt_fwu_wq_failed;
 	}
 	INIT_DELAYED_WORK(&ts->nvt_fwu_work, Boot_Update_Firmware);
-	// please make sure boot update start after display reset(RESX) sequence
-	queue_delayed_work(nvt_fwu_wq, &ts->nvt_fwu_work, msecs_to_jiffies(14000));
+	// please make sure boot update start after display reset(RESX) sequence.
+	// Recovery does not reset the panel again after boot, so start early there.
+	queue_delayed_work(nvt_fwu_wq, &ts->nvt_fwu_work,
+			msecs_to_jiffies(seccmn_recv_is_boot_recovery() ? 3000 : 14000));
 #endif
 
 	input_info(true, &client->dev,"NVT_TOUCH_ESD_PROTECT is %d\n", NVT_TOUCH_ESD_PROTECT);
