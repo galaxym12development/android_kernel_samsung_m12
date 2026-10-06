@@ -1,0 +1,24 @@
+#
+# ACPM driver configuration
+#
+
+menuconfig EXYNOS_ACPM
+	bool "ACPM driver support"
+	default n
+	help
+	  Enable ACPM support
+
+if EXYNOS_ACPM
+
+config EXYNOS_ACPM_MFD
+	bool "EXYNOS_ACPM_MFD support"
+	default y
+	help
+	  Enable ACPM_MFD support
+
+config EXYNOS_ACPM_S2D
+	bool "EXYNOS_ACPM_S2D support"
+	help
+	  Enable ACPM_S2D support
+
+endif

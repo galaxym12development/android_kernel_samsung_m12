@@ -188,3 +188,41 @@ obj-$(CONFIG_MULTIPLEXER)	+= mux/
 obj-$(CONFIG_UNISYS_VISORBUS)	+= visorbus/
 obj-$(CONFIG_SIOX)		+= siox/
 obj-$(CONFIG_GNSS)		+= gnss/
+obj-$(CONFIG_EXYNOS_BTS)        += bts/
+
+# SPU signature verify
+obj-$(CONFIG_SPU_VERIFY) += spu_verify/
+
+# Mobicore driver
+
+# vision driver
+
+obj-$(CONFIG_SEC_EXT)		+= samsung/
+
+# uH
+
+# sensor driver
+obj-y				+= sensors/
+
+# OLOG
+obj-y				+= kperfmon/
+obj-y += regulator/pmic_class/
+obj-y += misc/drb/
+obj-y += vibrator/common/
+obj-y += nfc/nfc_logger/
+obj-y += sti/abc/
+obj-y += muic/common/
+obj-y += samsung/debug/
+obj-y += input/input_boost/
+obj-y += fingerprint/
+obj-y += usb/typec/manager/
+obj-y += usb/typec/common/
+obj-y += mfd/sm/sm5714/
+obj-y += hwmon/sec_thermistor/
+obj-y += vibrator/dc/
+obj-y += muic/sm/sm5714/
+obj-y += sensorhub/
+obj-y += battery/fuelgauge/sm5714_fuelgauge/
+obj-y += usb/typec/sm/sm5714/
+obj-y += battery/charger/sm5714_charger/
+obj-y += battery/common/
