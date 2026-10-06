@@ -3,12 +3,28 @@
 # kbuild file for firmware/
 #
 
+CONFIG_EXTRA_FIRMWARE_DIR="firmware"
+
 # Create $(fwabs) from $(CONFIG_EXTRA_FIRMWARE_DIR) -- if it doesn't have a
 # leading /, it's relative to $(srctree).
 fwdir := $(subst $(quote),,$(CONFIG_EXTRA_FIRMWARE_DIR))
 fwabs := $(addprefix $(srctree)/,$(filter-out /%,$(fwdir)))$(filter /%,$(fwdir))
 
-fw-external-y := $(subst $(quote),,$(CONFIG_EXTRA_FIRMWARE))
+fw-external-$(CONFIG_TOUCHSCREEN_ILITEK_ILI9881X) += tsp_ilitek/ili9881x_m12s.hex tsp_ilitek/ili7806s_m12s.hex \
+														tsp_ilitek/ili9882_a12s.hex tsp_ilitek/ili7807s_a12s.hex
+fw-external-$(CONFIG_TOUCHSCREEN_NT36xxx_HOSTDL_SPI) += tsp_novatek/nt36525_m12s_csot.bin tsp_novatek/nt36525_m12s_mp_csot.bin \
+														tsp_novatek/nt36525_m12s_dtc.bin tsp_novatek/nt36525_m12s_mp_dtc.bin \
+														tsp_novatek/nt36675_m12s_ltps.bin tsp_novatek/nt36675_m12s_mp_ltps.bin \
+														tsp_novatek/nt36525_xcover5.bin tsp_novatek/nt36525_xcover5_mp.bin \
+														tsp_novatek/nt36525_a12s_csot.bin tsp_novatek/nt36525_a12s_mp_csot.bin \
+														tsp_novatek/nt36525_a12s_dtc.bin tsp_novatek/nt36525_a12s_mp_dtc.bin \
+														tsp_novatek/nt36525_a12s_sharp.bin tsp_novatek/nt36525_a12s_mp_sharp.bin
+
+fw-external-$(CONFIG_SHUB) += sensorhub/shub_nacho_bl.bin sensorhub/shub_nacho_a12s.bin sensorhub/shub_nacho_m12.bin sensorhub/shub_nacho_xcover5.bin
+
+fw-external-$(CONFIG_SENSORS_A96T3X6) += abov/a96t356_a12_main.bin abov/a96t356_a12_sub.bin
+fw-external-$(CONFIG_SENSORS_A96T3X6_M12_ALL) += abov/a96t356_m12s.bin abov/a96t356_m12s_sub.bin
+fw-external-$(CONFIG_SENSORS_A96T3X6_M12_KOR) += abov/a96t356_m12s_kor.bin abov/a96t356_m12s_kor_sub.bin
 
 quiet_cmd_fwbin = MK_FW   $@
       cmd_fwbin = FWNAME="$(patsubst firmware/%.gen.S,%,$@)";		     \
