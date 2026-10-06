@@ -1,0 +1,2 @@
+source "drivers/misc/samsung/scsc/Kconfig"
+source "drivers/misc/samsung/scsc_bt/Kconfig"
